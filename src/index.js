@@ -1,8 +1,8 @@
-import './style.css'
+import './style.css';
 
-const lists = document.querySelector('.to-do-item')
+const lists = document.querySelector('.to-do-item');
 
-let todoArray = [
+const todoArray = [
   {
     description: 'wash the dishes',
     completed: false,
@@ -13,11 +13,10 @@ let todoArray = [
     completed: false,
     index: 2,
   },
-]
+];
 
 const populateList = () => {
-  let displayData = todoArray.map((item) => {
-    return `
+  const displayData = todoArray.map((item) => `
     <div class="list-item">
           <label for="todo"
             ><input type="checkbox" name="todo" id="todo" /> ${item.description}</label
@@ -25,11 +24,10 @@ const populateList = () => {
         </div>
         <hr />
     
-    `
-  })
-  lists.innerHTML = displayData.join(' ')
-}
+    `);
+  lists.innerHTML = displayData.join(' ');
+};
 
 window.addEventListener('DOMContentLoaded', () => {
-  populateList()
-})
+  populateList();
+});
