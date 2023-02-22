@@ -1,3 +1,58 @@
-.hello {
-  color: red;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h2 {
+  color: gray;
+}
+.todo-form {
+  width: 70%;
+  border: 1px solid gray;
+  margin: 3rem auto;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+.todo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.3rem;
+}
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1.3rem;
+}
+.todo-input {
+  width: 90%;
+  font-style: italic;
+  font-size: 15px;
+  padding: 1.3rem;
+  border: 0;
+  color: gray;
+}
+#enter-list {
+  color: gray;
+}
+.list-item {
+  padding: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+}
+.list-item label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.clear-section{
+  padding: 1.9rem;
+  background-color: rgb(239, 236, 236);
+}
+.clear-section p{
+  text-align: center;
+  font-size: 15px;
 }

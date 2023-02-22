@@ -3,9 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wbpack Exercise</title>
+    <script
+      src="https://kit.fontawesome.com/5e67ba493b.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Todo List</title>
   </head>
   <body>
-    <h1>Hello There!</h1>
+    <form class="todo-form">
+      <div class="todo-header">
+        <h2>Today's To Do</h2>
+        <i class="fa-solid fa-recycle"></i>
+      </div>
+      <hr />
+      <div class="input-container">
+        <input
+          type="text"
+          class="todo-input"
+          placeholder="Add to your list..."
+        /><i class="fa-solid fa-share" id="enter-list"></i>
+      </div>
+      <div class="to-do-item">
+        <hr />
+        <div class="list-item">
+          <label for="todo"
+            ><input type="checkbox" name="todo" id="todo" /> Wash the
+            dishes</label
+          ><i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        <hr />
+      </div>
+      <div class="clear-section">
+        <p>Clear all completed</p>
+      </div>
+    </form>
   </body>
 </html>
