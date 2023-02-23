@@ -1,5 +1,5 @@
 import './style.css';
-import { getData, populateList, addlist } from './app.js';
+import { getData, populateList, addlist } from '../modules/app.js';
 
 addlist();
 
