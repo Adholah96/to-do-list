@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./modules/app.js":
+/*!************************!*\
+  !*** ./modules/app.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"addlist\": () => (/* binding */ addlist),\n/* harmony export */   \"getData\": () => (/* binding */ getData),\n/* harmony export */   \"populateList\": () => (/* binding */ populateList)\n/* harmony export */ });\nconst submit = document.getElementById('enter-list');\nconst input = document.querySelector('.todo-input');\nconst lists = document.querySelector('.to-do-item');\n\nlet todoArray = [];\n\n// Get data from the local storage\nconst getData = () => {\n  const data = localStorage.getItem('todoArray');\n  if (data) {\n    todoArray = JSON.parse(data);\n  }\n};\n\n// Add data to the local storage\nconst addData = () => {\n  localStorage.setItem('todoArray', JSON.stringify(todoArray));\n};\n\n// Add item\nconst addItem = (description) => {\n  const item = {\n    description,\n    completed: false,\n    index: todoArray.length + 1,\n  };\n  todoArray.push(item);\n  addData();\n};\n\n// display list and content on the page\nconst populateList = () => {\n  const displayData = todoArray.map(\n    (item) => `\n      <div class=\"list-item\">\n      <label for=\"todo-${item.index}\">\n        <input type=\"checkbox\" name=\"todo-${item.index}\" id=\"todo-${\n  item.index\n}\" ${item.completed ? 'checked' : ''} />\n        ${item.description}\n      </label>\n      <button class=\"delete-btn\" data-index=\"${\n  item.index\n}\"><i class=\"fa-regular fa-trash-can\"></i></button>\n    </div>\n    <hr />\n    `,\n  );\n  lists.innerHTML = displayData.join(' ');\n\n  // toggle checked and unchecked on the list\n  const chbox = document.querySelectorAll('input[type=\"checkbox\"]');\n  chbox.forEach((check, i) => {\n    check.addEventListener('click', () => {\n      todoArray[i].completed = !todoArray[i].completed;\n      addData(todoArray);\n    });\n  });\n\n  // delete items\n  const deletebtn = document.querySelectorAll('.delete-btn');\n  deletebtn.forEach((btn) => {\n    btn.addEventListener('click', (e) => {\n      const index = parseInt(e.currentTarget.dataset.index, 10);\n      todoArray.splice(index - 1, 1);\n      for (let i = index - 1; i < todoArray.length; i += 1) {\n        todoArray[i].index = i + 1;\n      }\n      addData();\n      populateList();\n    });\n  });\n};\n\n// add list when form is submitted\nconst addlist = () => {\n  submit.addEventListener('click', (e) => {\n    e.preventDefault();\n    const inputData = input.value.trim();\n    if (inputData !== '') {\n      addItem(inputData);\n      input.value = '';\n      populateList();\n    }\n  });\n  input.addEventListener('keydown', (e) => {\n    if (e.keyCode === 13) {\n      e.preventDefault();\n      submit.click();\n    }\n  });\n};\n\n\n\n\n//# sourceURL=webpack://webpack-demo/./modules/app.js?");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/style.css":
 /*!*************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
@@ -110,23 +120,13 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
-/***/ "./src/app.js":
-/*!********************!*\
-  !*** ./src/app.js ***!
-  \********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getData\": () => (/* binding */ getData),\n/* harmony export */   \"populateList\": () => (/* binding */ populateList)\n/* harmony export */ });\nconst form = document.querySelector('.todo-form')\r\nconst input = document.querySelector('.todo-input')\r\nconst lists = document.querySelector('.to-do-item')\r\n\r\nlet todoArray = []\r\n\r\n//Get data from the local storage\r\nconst getData = () => {\r\n  const data = localStorage.getItem('todoArray')\r\n  if (data) {\r\n    todoArray = JSON.parse(data)\r\n  }\r\n}\r\n\r\n//Add data to the local storage\r\nconst addData = () => {\r\n  localStorage.setItem('todoArray', JSON.stringify(todoArray))\r\n}\r\n\r\n//Add item\r\nconst addItem = (description) => {\r\n  const item = {\r\n    description,\r\n    completed: false,\r\n    index: todoArray.length + 1,\r\n  }\r\n  todoArray.push(item)\r\n  addData()\r\n}\r\n\r\n//display list and content on the page\r\nconst populateList = () => {\r\n  const displayData = todoArray.map(\r\n    (item) => `\r\n    <div class=\"list-item\">\r\n          <label for=\"todo\"\r\n            ><input type=\"checkbox\" name=\"todo\" id=\"todo\" /> ${item.description}</label\r\n          ><i class=\"fa-solid fa-ellipsis-vertical\"></i>\r\n        </div>\r\n        <hr />\r\n    `\r\n  )\r\n  lists.innerHTML = displayData.join(' ')\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack://webpack-demo/./src/app.js?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _app_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.js */ \"./src/app.js\");\n\n\n\nwindow.addEventListener('DOMContentLoaded', () => {\n  (0,_app_js__WEBPACK_IMPORTED_MODULE_1__.getData)()\n  ;(0,_app_js__WEBPACK_IMPORTED_MODULE_1__.populateList)()\n})\n\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_app_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/app.js */ \"./modules/app.js\");\n\n\n\n(0,_modules_app_js__WEBPACK_IMPORTED_MODULE_1__.addlist)();\n\nwindow.addEventListener('DOMContentLoaded', () => {\n  (0,_modules_app_js__WEBPACK_IMPORTED_MODULE_1__.getData)();\n  (0,_modules_app_js__WEBPACK_IMPORTED_MODULE_1__.populateList)();\n});\n\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
 
 /***/ })
 
