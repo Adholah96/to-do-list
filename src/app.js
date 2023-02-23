@@ -1,96 +1,94 @@
-const submit = document.getElementById('enter-list')
-const input = document.querySelector('.todo-input')
-const lists = document.querySelector('.to-do-item')
+const submit = document.getElementById('enter-list');
+const input = document.querySelector('.todo-input');
+const lists = document.querySelector('.to-do-item');
 
-let todoArray = []
+let todoArray = [];
 
-//Get data from the local storage
+// Get data from the local storage
 const getData = () => {
-  const data = localStorage.getItem('todoArray')
+  const data = localStorage.getItem('todoArray');
   if (data) {
-    todoArray = JSON.parse(data)
+    todoArray = JSON.parse(data);
   }
-}
+};
 
-//Add data to the local storage
+// Add data to the local storage
 const addData = () => {
-  localStorage.setItem('todoArray', JSON.stringify(todoArray))
-}
+  localStorage.setItem('todoArray', JSON.stringify(todoArray));
+};
 
-//Add item
+// Add item
 const addItem = (description) => {
   const item = {
     description,
     completed: false,
     index: todoArray.length + 1,
-  }
-  todoArray.push(item)
-  addData()
-}
+  };
+  todoArray.push(item);
+  addData();
+};
 
-//display list and content on the page
+// display list and content on the page
 const populateList = () => {
   const displayData = todoArray.map(
-    (item, i) => `
+    (item) => `
       <div class="list-item">
       <label for="todo-${item.index}">
         <input type="checkbox" name="todo-${item.index}" id="todo-${
-      item.index
-    }" ${item.completed ? 'checked' : ''} />
+  item.index
+}" ${item.completed ? 'checked' : ''} />
         ${item.description}
       </label>
-      <i class="fa-solid fa-ellipsis-vertical"></i>
       <button class="delete-btn" data-index="${
-        item.index
-      }"><i class="fa-solid fa-trash"></i></button>
+  item.index
+}"><i class="fa-solid fa-ellipsis-vertical"></i></button>
     </div>
     <hr />
-    `
-  )
-  lists.innerHTML = displayData.join(' ')
+    `,
+  );
+  lists.innerHTML = displayData.join(' ');
 
-  //toggle checked and unchecked on the list
-  const chbox = document.querySelectorAll('input[type="checkbox"]')
+  // toggle checked and unchecked on the list
+  const chbox = document.querySelectorAll('input[type="checkbox"]');
   chbox.forEach((check, i) => {
     check.addEventListener('click', () => {
-      todoArray[i].completed = !todoArray[i].completed
-      addData(todoArray)
-    })
-  })
-}
+      todoArray[i].completed = !todoArray[i].completed;
+      addData(todoArray);
+    });
+  });
 
-//delete items
+  // delete items
+  const deletebtn = document.querySelectorAll('.delete-btn');
+  deletebtn.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const index = parseInt(e.currentTarget.dataset.index, 10);
+      todoArray.splice(index - 1, 1);
+      for (let i = index - 1; i < todoArray.length; i += 1) {
+        todoArray[i].index = i + 1;
+      }
+      addData();
+      populateList();
+    });
+  });
+};
 
-const deletebtn = document.querySelectorAll('.delete-btn')
-deletebtn.forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    const index = parseInt(e.currentTarget.dataset.index)
-    todoArray.splice(index, 1)
-    for (let i = index; i < todoArray.length; i += 1) {
-      todoArray[i].index = i + 1
-    }
-    localStorage.setItem('todoArray', JSON.stringify(todoArray))
-    populateList()
-  })
-})
-
-//add list when form is submitted
+// add list when form is submitted
 const addlist = () => {
   submit.addEventListener('click', (e) => {
-    e.preventDefault()
-    const inputData = input.value.trim()
+    e.preventDefault();
+    const inputData = input.value.trim();
     if (inputData !== '') {
-      addItem(inputData)
-      input.value = ''
-      populateList()
+      addItem(inputData);
+      input.value = '';
+      populateList();
     }
-  })
+  });
   input.addEventListener('keydown', (e) => {
     if (e.keyCode === 13) {
-      e.preventDefault()
-      submit.click()
+      e.preventDefault();
+      submit.click();
     }
-  })
-}
+  });
+};
 
-export { getData, populateList, addlist }
+export { getData, populateList, addlist };
