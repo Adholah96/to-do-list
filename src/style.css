@@ -73,3 +73,6 @@ h2 {
   display: none;
 }
 
+.list-item p[contenteditable='true'] {
+  outline: none;
+}
