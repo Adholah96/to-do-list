@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst toggleCheckbox = (todoArray) => {\n  const chbox = document.querySelectorAll('input[type=\"checkbox\"]')\n  chbox.forEach((check, i) => {\n    check.addEventListener('click', () => {\n      todoArray[i].completed = !todoArray[i].completed\n    })\n  })\n  localStorage.setItem('todoArray', JSON.stringify(todoArray))\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleCheckbox);\n\n\n//# sourceURL=webpack://webpack-demo/./modules/toggle.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst toggleCheckbox = (todoArray) => {\n  const chbox = document.querySelectorAll('input[type=\"checkbox\"]')\n  chbox.forEach((check, i) => {\n    check.addEventListener('click', () => {\n      todoArray[i].completed = !todoArray[i].completed\n      localStorage.setItem('todoArray', JSON.stringify(todoArray))\n    })\n  })\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toggleCheckbox);\n\n\n//# sourceURL=webpack://webpack-demo/./modules/toggle.js?");
 
 /***/ }),
 

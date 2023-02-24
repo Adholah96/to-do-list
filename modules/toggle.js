@@ -3,9 +3,9 @@ const toggleCheckbox = (todoArray) => {
   chbox.forEach((check, i) => {
     check.addEventListener('click', () => {
       todoArray[i].completed = !todoArray[i].completed;
+      localStorage.setItem('todoArray', JSON.stringify(todoArray));
     });
   });
-  localStorage.setItem('todoArray', JSON.stringify(todoArray));
 };
 
 export default toggleCheckbox;
