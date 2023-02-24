@@ -60,11 +60,11 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 WEBPACK <a name="about-project"></a>
+# 📖 TODO LiST <a name="about-project"></a>
 
 <!-- > Describe your project in 1 or 2 sentences. -->
 
-**webpack** is a boiler template for my webpack bundler.
+**Todo List** is a javascript project that behave like a simple to do list application. The application could add item, delete an item, edit an item and also clear items that have been checked by the user.
 
 ## 🛠 Built With <a name="built-with"></a>
 
