@@ -1,3 +1,5 @@
+import toggleCheckbox from './toggle.js';
+
 const submit = document.getElementById('enter-list');
 const input = document.querySelector('.todo-input');
 const lists = document.querySelector('.to-do-item');
@@ -54,13 +56,7 @@ const populateList = () => {
   lists.innerHTML = displayData.join(' ');
 
   // toggle checked and unchecked on the list
-  const chbox = document.querySelectorAll('input[type="checkbox"]');
-  chbox.forEach((check, i) => {
-    check.addEventListener('click', () => {
-      todoArray[i].completed = !todoArray[i].completed;
-      addData(todoArray);
-    });
-  });
+  toggleCheckbox(todoArray);
 
   // add event listener to detail buttons
   const detailbtn = document.querySelectorAll('.detail-btn');
@@ -93,6 +89,19 @@ const populateList = () => {
       addData();
       populateList();
     });
+  });
+
+  // Delete all
+  const clearBtn = document.getElementById('clear-btn');
+  clearBtn.addEventListener('click', (e) => {
+    // eslint-disable-next-line no-unused-vars
+    const index = parseInt(e.currentTarget.dataset.index, 10);
+    todoArray = todoArray.filter((item) => !item.completed);
+    todoArray.forEach((item, index) => {
+      item.index = index + 1;
+    });
+    addData();
+    populateList();
   });
 
   // add event listener to paragraphs for editing
@@ -130,4 +139,6 @@ const addlist = () => {
   });
 };
 
-export { getData, populateList, addlist };
+export {
+  getData, populateList, addlist, addData,
+};
