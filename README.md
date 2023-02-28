@@ -85,26 +85,7 @@ After you're finished please remove all the comments and instructions!
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
-
-<!-- > Add a link to your deployed project. -->
-
-- [Coming soon](#)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## 💻 Getting Started <a name="getting-started"></a>
-
-### Prerequisites
-
-In order to run this project you need:
-
-- Visual Studio Code
-- A Browser
-- Node
-- Git
-
-### Setup
+## 🚀 Live Demo <a name="live-demo"></a> 
 
 Clone this repository to your desired folder:
 
