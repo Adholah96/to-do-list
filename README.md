@@ -60,7 +60,7 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 TODO LiST <a name="about-project"></a>
+# 📖 TODO LiSTS <a name="about-project"></a>
 
 <!-- > Describe your project in 1 or 2 sentences. -->
 
