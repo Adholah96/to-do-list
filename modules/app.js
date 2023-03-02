@@ -6,6 +6,21 @@ const lists = document.querySelector('.to-do-item');
 
 let todoArray = [];
 
+// Delete all
+const deleteItem = () => {
+  const clearBtn = document.getElementById('clear-btn');
+  clearBtn.addEventListener('click', (e) => {
+    // eslint-disable-next-line no-unused-vars
+    const index = parseInt(e.currentTarget.dataset.index, 10);
+    todoArray = todoArray.filter((item) => !item.completed);
+    todoArray.forEach((item, index) => {
+      item.index = index + 1;
+    });
+    addData();
+    populateList();
+  });
+};
+
 // Get data from the local storage
 const getData = () => {
   const data = localStorage.getItem('todoArray');
@@ -91,18 +106,7 @@ const populateList = () => {
     });
   });
 
-  // Delete all
-  const clearBtn = document.getElementById('clear-btn');
-  clearBtn.addEventListener('click', (e) => {
-    // eslint-disable-next-line no-unused-vars
-    const index = parseInt(e.currentTarget.dataset.index, 10);
-    todoArray = todoArray.filter((item) => !item.completed);
-    todoArray.forEach((item, index) => {
-      item.index = index + 1;
-    });
-    addData();
-    populateList();
-  });
+  deleteItem();
 
   // add event listener to paragraphs for editing
   const paragraphs = document.querySelectorAll('.list-item p');
@@ -140,5 +144,5 @@ const addlist = () => {
 };
 
 export {
-  getData, populateList, addlist, addData,
+  getData, populateList, addlist, addData, todoArray, addItem,
 };
