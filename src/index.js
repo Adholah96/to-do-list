@@ -1,9 +1,17 @@
-import './style.css';
-import { getData, populateList, addlist } from '../modules/app.js';
+import './style.css'
+import displayTasks from '../modules/displayTasks'
+import addTask from '../modules/addTasks'
+import clearAllTask from '../modules/deleteAll'
 
-addlist();
+displayTasks()
+addTask()
+clearAllTask()
 
-window.addEventListener('DOMContentLoaded', () => {
-  getData();
-  populateList();
-});
+// import { getData, populateList, addlist } from '../modules/app.js';
+
+// addlist();
+
+// window.addEventListener('DOMContentLoaded', () => {
+//   getData();
+//   populateList();
+// });
