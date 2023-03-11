@@ -1,17 +1,8 @@
-import './style.css'
-import displayTasks from '../modules/displayTasks'
-import addTask from '../modules/addTasks'
-import clearAllTask from '../modules/deleteAll'
+import './style.css';
+import displayTasks from '../modules/displayTasks.js';
+import addTask from '../modules/addTasks.js';
+import clearAllTask from '../modules/deleteAll.js';
 
-displayTasks()
-addTask()
-clearAllTask()
-
-// import { getData, populateList, addlist } from '../modules/app.js';
-
-// addlist();
-
-// window.addEventListener('DOMContentLoaded', () => {
-//   getData();
-//   populateList();
-// });
+displayTasks();
+addTask();
+clearAllTask();

@@ -89,7 +89,7 @@ After you're finished please remove all the comments and instructions!
 
 <!-- > Add a link to your deployed project. -->
 
-- [Coming soon](https://adholah96.github.io/to-do-list/dist/)
+- [Live Demo](https://adholah96.github.io/to-do-list/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
